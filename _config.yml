@@ -1,0 +1,10 @@
+title: "Purdue Esports Broadcast Operations Guide"
+markdown: kramdown
+theme: null
+force_polling: true
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor
