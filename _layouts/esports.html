@@ -310,6 +310,10 @@
   .plug .plug-icon { font-size: 1.1rem; display: block; margin-bottom: 3px; }
   .plug.filled { border-color: var(--ok); }
   .plug.filled .plug-icon { color: var(--ok); }
+  .plug.unavailable { border-color: #c85a5a; }
+  .plug.unavailable .plug-icon,
+  .plug.unavailable del { color: #c47777; }
+  .plug.unavailable del { text-decoration-color: #c85a5a; }
 
   table { width: 100%; border-collapse: collapse; font-size: 0.88rem; margin: 14px 0; }
   th {
@@ -322,6 +326,7 @@
     text-align: left;
   }
   td { padding: 9px 14px; border-bottom: 1px solid #2a2a2a; color: #ccc; }
+  td del { color: #c47777; text-decoration-color: #c85a5a; }
   tr:last-child td { border-bottom: none; }
   tr:hover td { background: #222; }
 
