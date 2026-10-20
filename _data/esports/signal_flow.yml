@@ -1,0 +1,55 @@
+- heading: "Video (Casting Set → Studio)"
+  steps:
+    - label: Source
+      name: Cameras 1–3
+      arrow_after: "→"
+    - label: Ingest
+      name: Cam Link Pro (HDMI 1–3)
+      arrow_after: "→"
+    - label: Canvas
+      name: OBS (4K tiled)
+      arrow_after: "→"
+    - label: Transport
+      name: OMT over Network
+      arrow_after: "→"
+    - label: Production
+      name: vMix (Director PC)
+
+- heading: "Video (Observer PCs → Studio)"
+  steps:
+    - label: Source
+      name: Observer PCs (×3)
+      arrow_after: "→"
+    - label: Transport
+      name: OMT 1440p60
+      arrow_after: "→"
+    - label: Production
+      name: vMix (Director PC)
+
+- heading: Audio
+  steps:
+    - label: Input
+      name: Broadcast Headsets
+      arrow_after: "→"
+    - label: Board
+      name: RODECaster Pro II
+      arrow_after: "↔"
+    - label: DAW/Mix
+      name: vMix (USB)
+
+- heading: Casting TV Output (Typical Setup)
+  notice: "HDMI Switcher is Out-of-order, a single casting TV of choice should be connected directly to the laptop"
+  steps:
+    - label: Source
+      name: OBS OMT Source
+      arrow_after: "→"
+    - label: Output
+      name: Laptop HDMI
+      arrow_after: "→"
+    - label: Switcher
+      name: HDMI Switcher
+      unavailable: true
+      arrow_after: "→"
+    - label: Display
+      name: TV 1
+      unavailable_suffix: "+ TV 2"

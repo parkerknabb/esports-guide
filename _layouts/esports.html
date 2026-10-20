@@ -98,6 +98,31 @@
   .sf-box .label { color: #888; font-size: 0.7rem; text-transform: uppercase; margin-bottom: 2px; }
   .sf-box .name { color: var(--light); font-weight: 600; }
   .sf-arrow { color: var(--gold); font-size: 1.2rem; flex-shrink: 0; }
+  .sf-box.unavailable {
+    background: #261b1b;
+    border-color: #754747;
+    text-decoration: line-through;
+    text-decoration-color: #c85a5a;
+  }
+  .sf-box.unavailable .label,
+  .sf-box.unavailable .name {
+    color: #c47777;
+  }
+  .sf-unavailable-text {
+    color: #c47777;
+    text-decoration: line-through;
+    text-decoration-color: #c85a5a;
+  }
+  .signal-flow-notice {
+    display: inline-block;
+    margin: -8px 0 16px;
+    padding: 8px 12px;
+    background: #2a1b1b;
+    border-left: 3px solid #c85a5a;
+    border-radius: 4px;
+    color: #e7a0a0;
+    font-size: 0.85rem;
+  }
 
   .eq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0; }
   .eq-card {
