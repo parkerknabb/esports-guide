@@ -13,13 +13,13 @@ casting:
     - header: "1 — Access & Power Run"
       items:
         - id: c1
-          text: Retrieve keys from desk worker to unlock the concealed wall panel
+          text: Retrieve keys from desk worker to unlock the concealed wall panel (Right side of Console area)
         - id: c1b
           text: Ask the desk worker to change the <strong>room lighting scene</strong> to the appropriate game
         - id: c2
           text: Run power strip cable from wall outlet (inside concealed panel) to casting set
-        - id: c3
-          text: Run network cable from wall port (inside concealed panel) to casting set
+        # - id: c3
+        #   text: Run network cable from wall port (inside concealed panel) to casting set
 
     - header: "2 — Power Up All Devices (Laptop Last)"
       items:
@@ -38,7 +38,7 @@ casting:
         - id: c10
           text: Plug in <strong>HDMI Switcher</strong> power
         - id: c11
-          text: Plug in <strong>casting laptop</strong> power adapter
+          text: Plug in <strong>Casting laptop</strong> power adapter 
         - id: c_verify_power
           text: "Verify all 8 power strip slots are occupied — <strong>no free plugs</strong><br><small style='color:#888'>Breakaway Box · Cam 1 · Cam 2 · Cam 3 · Light 1 · Light 2 · HDMI Switcher · Laptop</small>"
 
@@ -62,7 +62,7 @@ casting:
     - header: "4 — Connect Laptop Peripherals (Before Booting)"
       items:
         - id: c19
-          text: "Connect <strong>ethernet</strong>: wall cable → USB-to-Ethernet adapter → laptop. <strong>Do not use the laptop's built-in ethernet port</strong> — it is unreliable"
+          text: "Connect <strong>Ethernet</strong>: wall cable → USB-to-Ethernet adapter → laptop. <strong>Do not use the laptop's built-in ethernet port</strong> — it is unreliable"
         - id: c20
           text: "Connect <strong>Thunderbolt USB-C</strong>: Breakaway Box → the USB-C port at the <strong>far end of the rear IO</strong> (furthest from the power adapter). Ensure fully seated on both ends.<br><small style='color:#888'>The port closest to the power adapter is less reliable for Thunderbolt — always use the far one.</small>"
         - id: c21

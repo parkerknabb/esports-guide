@@ -7,6 +7,15 @@
 #
 # To add a new issue: copy a block, fill in the fields, place in logical order.
 
+- title: "🎵 Music not playing on the MUSIC channel / Foobar2000 not routing"
+  tag: audio
+  steps:
+    - "Check that <strong>Foobar2000</strong> is open and playing on the Director PC — it may not have been launched yet or may have stopped."
+    - "In Foobar2000, verify the output device is set to route to the RODECaster Music  (check File → Preferences → Playback → Output)."
+    - "If the MUSIC Audio Device does not show up in the Devices Menu, first open the RODECaster App and verify that the board is connected, then enable the Music Audio Interface (Control Panel → Hardware and Sound → Sound → Playback → Music [RODECaster] → Right-click → Enable)"
+    - "On the RODECaster, confirm the <strong>MUSIC</strong> channel fader is up and not muted."
+    - "If Foobar2000 is running and routing correctly but the board shows no signal, power cycle the RODECaster and reopen vMix after it restarts."
+
 - title: "📷 Cameras not appearing in Elgato Capture Utility or OBS"
   tag: cam
   steps:
@@ -15,6 +24,17 @@
     - "Verify the Thunderbolt cable is in the <strong>far rear USB-C port</strong> on the Alienware m16 (furthest from the power adapter), not the adjacent port."
     - "Confirm all 3 camera HDMI cables are seated at both the camera and Cam Link Pro ends."
     - "Open the <strong>Elgato 4K Capture Utility</strong> first to confirm the card is visible before opening OBS. If the card doesn't appear in Capture Utility, the Thunderbolt link is the problem — not OBS."
+    - "In OBS, Right-click each Camera Source [Video Capture Device 0/1/2] and cycle the output (ie: Right-click Video Capture Device 0 → Properties → Device → Select a Random Device → Select the correct Elgato Device [Cam Link Pro-HDMI 1/2/3] → OK)"
+
+- title: "🎮 Game audio from Observer PCs not heard by casters or on stream"
+  tag: audio
+  steps:
+    - "In OBS on the affected Observer PC, confirm the game capture source has audio enabled and is not muted in the OBS audio mixer."
+    - "Verify the Observer PC is transmitting OMT to vMix — if the video feed is also missing, resolve that first (see OMT troubleshooting)."
+    - "In vMix on the Director PC, check the audio settings for that Observer's OMT input — confirm audio is enabled and its level is not zeroed."
+    - "Put that Observer feed on program and check the RODECaster for signal on the game audio channel. If vMix is sending it but the board isn't receiving it, the Virtual A Device is probably disabled"
+    - "If the Virtual A Audio Device is not enabled, first open the RODECaster App and verify that the board is connected, then enable the Virtual A Audio Interface (Control Panel → Hardware and Sound → Sound → Playback → Virtual A [RODECaster] → Right-click → Enable)"
+    - "Confirm no solo button is engaged on the board that would mask the game audio channel in your monitor mix."
 
 - title: "📡 NDI/OMT feed stuttering or dropping from casting set"
   tag: net
@@ -78,23 +98,6 @@
     - "If the deck is still unresponsive, unplug the USB extension from the laptop, wait a few seconds, and replug. Companion Satellite should re-detect the device automatically."
     - "If the issue persists, try plugging the Stream Deck Mini directly into a laptop USB port (bypassing the extension cable) to rule out a faulty extension."
 
-- title: "🎵 Music not playing on the MUSIC channel / Foobar2000 not routing"
-  tag: audio
-  steps:
-    - "Check that <strong>Foobar2000</strong> is open and playing on the Director PC — it may not have been launched yet or may have stopped."
-    - "In Foobar2000, verify the output device is set to route to the RODECaster (check Preferences → Playback → Output)."
-    - "On the RODECaster, confirm the <strong>MUSIC</strong> channel fader is up and not muted."
-    - "If Foobar2000 is running and routing correctly but the board shows no signal, power cycle the RODECaster and reopen vMix after it restarts."
-
-- title: "🎮 Game audio from Observer PCs not heard by casters or on stream"
-  tag: audio
-  steps:
-    - "In OBS on the affected Observer PC, confirm the game capture source has audio enabled and is not muted in the OBS audio mixer."
-    - "Verify the Observer PC is transmitting OMT to vMix — if the video feed is also missing, resolve that first (see OMT troubleshooting)."
-    - "In vMix on the Director PC, check the audio settings for that Observer's OMT input — confirm audio is enabled and its level is not zeroed."
-    - "Put that Observer feed on program and check the RODECaster for signal on the game audio channel. If vMix is sending it but the board isn't receiving it, check the USB connection between the Director PC and the RODECaster."
-    - "Confirm no solo button is engaged on the board that would mask the game audio channel in your monitor mix."
-
 - title: "⏱ Game audio is delayed (often exactly 1 second)"
   tag: audio
   note: "A consistent 1-second delay is a known OBS sync issue on observer PCs — a full reboot of OBS resolves it reliably."
@@ -110,3 +113,11 @@
     - On the affected observer PC, open the OBS audio mixer.
     - "Find the <strong>Desktop Audio</strong> channel and mute it — only <strong>Game Capture</strong> audio should be active."
     - Confirm the echo is gone before returning that feed to program.
+
+- title: "🔁 Stream audio is muted or Audio not going to stream"
+  tag: audio
+  note: "This happens because the RODE audio driver reconnects and reattaches all the virtual audio devices (PROGRAM, MONITOR, Music, Virtual A). VMix does not like that"
+  steps:
+    - "Look at the audio output meter of Output on the TV, if it is blank and has no activity, VMix is not getting any audio."
+    - "Inside VMix, find the MAIN AUDIO and Audio Microphone scenes (should be black & empty), right-click and Reset the scene. This will reset the audio and should bring it back"
+    - "If the issue persists, the RODE board will need to be reconnected. Switch to the TECHNICAL DIFFICULTIES scence inside OBS, close VMIX, reconnect the RODE board, reopen VMIX and switch back to MAIN once ready." 
