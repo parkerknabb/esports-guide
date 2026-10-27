@@ -35,12 +35,10 @@ casting:
           text: Plug in <strong>GVM Light 1</strong> power and power on — adjust for scene
         - id: c9
           text: Plug in <strong>GVM Light 2</strong> power and power on — adjust for scene
-        - id: c10
-          text: Plug in <strong>HDMI Switcher</strong> power
         - id: c11
           text: Plug in <strong>Casting laptop</strong> power adapter 
         - id: c_verify_power
-          text: "Verify all 8 power strip slots are occupied — <strong>no free plugs</strong><br><small style='color:#888'>Breakaway Box · Cam 1 · Cam 2 · Cam 3 · Light 1 · Light 2 · HDMI Switcher · Laptop</small>"
+          text: "Verify the 7 required power strip slots are occupied<br><small style='color:#888'>Breakaway Box · Cam 1 · Cam 2 · Cam 3 · Light 1 · Light 2 · Laptop</small>"
 
     - header: "3 — Run All Video Cables"
       items:
@@ -51,18 +49,18 @@ casting:
         - id: c14
           text: "<strong>Camera 3</strong> (Panasonic Lumix G) HDMI → Cam Link Pro <strong>HDMI 3</strong>"
         - id: c15
-          text: "Laptop <strong>HDMI out</strong> → HDMI Switcher <strong>input</strong> port"
+          text: "Laptop <strong>HDMI out</strong> → Casting TV (1 or 2); instead of <del>HDMI Switcher input</del>"
         - id: c16
-          text: "HDMI Switcher <strong>output 1</strong> → Casting TV 1 (direct HDMI)"
+          text: "<del>HDMI Switcher output 1 → Casting TV 1 (direct HDMI)</del>"
         - id: c17
-          text: "HDMI Switcher <strong>output 2</strong> → Casting TV 2 (direct HDMI)"
+          text: "<del>HDMI Switcher output 2 → Casting TV 2 (direct HDMI)</del>"
         - id: c18
           text: Power on all 3 cameras and confirm each has a live output signal
 
     - header: "4 — Connect Laptop Peripherals (Before Booting)"
       items:
         - id: c19
-          text: "Connect <strong>Ethernet</strong>: wall cable → USB-to-Ethernet adapter → laptop. <strong>Do not use the laptop's built-in ethernet port</strong> — it is unreliable"
+          text: "Connect <strong>Ethernet</strong>: network cable (in audio loom) → USB-to-Ethernet adapter → laptop. <strong>Do not use the laptop's built-in ethernet port</strong> — it is unreliable"
         - id: c20
           text: "Connect <strong>Thunderbolt USB-C</strong>: Breakaway Box → the USB-C port at the <strong>far end of the rear IO</strong> (furthest from the power adapter). Ensure fully seated on both ends.<br><small style='color:#888'>The port closest to the power adapter is less reliable for Thunderbolt — always use the far one.</small>"
         - id: c21
@@ -92,7 +90,7 @@ casting:
         - id: c30
           text: Confirm OMT output is active in OBS and transmitting to the studio network
         - id: c31
-          text: "Verify program feed is visible on both casting TVs. If not: in OBS, right-click <strong>OMT Source</strong> → <em>Open Source Projector</em> → select TV monitor (not laptop display). Press <kbd>ESC</kbd> if you accidentally select the laptop screen"
+          text: "Verify program feed is visible on the connected casting TV. If not: in OBS, right-click <strong>OMT Source</strong> → <em>Open Source Projector</em> → select TV monitor (not laptop display). Press <kbd>ESC</kbd> if you accidentally select the laptop screen"
 
 studio:
   groups:
@@ -101,7 +99,7 @@ studio:
         - id: c32
           text: "<strong>Power on the RODECaster Pro II before anything else</strong> — at minimum, it must be on before vMix is opened"
         - id: c33
-          text: "Confirm the <strong>MUSIC</strong> channel is playing — if not, verify <strong>Foobar2000</strong> is running on the Director PC and routing to the board"
+          text: "Confirm the <strong>MUSIC</strong> channel is playing — if not, verify <strong>Foobar2000</strong> is running on the Director PC and routing to the board (Head to Problems if not)"
 
     - header: "8 — Boot Director PC & Open vMix"
       items:
