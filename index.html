@@ -30,47 +30,20 @@ title: "Purdue Esports Broadcast Operations Guide"
   <h3>Signal Flow</h3>
   <p>Understanding the signal chain helps you quickly isolate where a problem is occurring.</p>
 
-  <h4 style="color:#888; font-size:0.8rem; text-transform:uppercase; letter-spacing:0.04em; margin:16px 0 8px">Video (Casting Set → Studio)</h4>
+  {% for flow in site.data.esports.signal_flow %}
+  <h4 style="color:#888; font-size:0.8rem; text-transform:uppercase; letter-spacing:0.04em; margin:16px 0 8px">{{ flow.heading }}</h4>
   <div class="signal-flow">
-    <div class="sf-box"><div class="label">Source</div><div class="name">Cameras 1–3</div></div>
-    <div class="sf-arrow">→</div>
-    <div class="sf-box"><div class="label">Ingest</div><div class="name">Cam Link Pro (HDMI 1–3)</div></div>
-    <div class="sf-arrow">→</div>
-    <div class="sf-box"><div class="label">Canvas</div><div class="name">OBS (4K tiled)</div></div>
-    <div class="sf-arrow">→</div>
-    <div class="sf-box"><div class="label">Transport</div><div class="name">OMT over Network</div></div>
-    <div class="sf-arrow">→</div>
-    <div class="sf-box"><div class="label">Production</div><div class="name">vMix (Director PC)</div></div>
+    {% for step in flow.steps %}
+    <div class="sf-box{% if step.unavailable %} unavailable{% endif %}"><div class="label">{{ step.label }}</div><div class="name">{{ step.name }}{% if step.unavailable_suffix %} <span class="sf-unavailable-text">{{ step.unavailable_suffix }}</span>{% endif %}</div></div>
+    {% if step.arrow_after %}
+    <div class="sf-arrow">{{ step.arrow_after }}</div>
+    {% endif %}
+    {% endfor %}
   </div>
-
-  <h4 style="color:#888; font-size:0.8rem; text-transform:uppercase; letter-spacing:0.04em; margin:16px 0 8px">Video (Observer PCs → Studio)</h4>
-  <div class="signal-flow">
-    <div class="sf-box"><div class="label">Source</div><div class="name">Observer PCs (×3)</div></div>
-    <div class="sf-arrow">→</div>
-    <div class="sf-box"><div class="label">Transport</div><div class="name">OMT 1440p60</div></div>
-    <div class="sf-arrow">→</div>
-    <div class="sf-box"><div class="label">Production</div><div class="name">vMix (Director PC)</div></div>
-  </div>
-
-  <h4 style="color:#888; font-size:0.8rem; text-transform:uppercase; letter-spacing:0.04em; margin:16px 0 8px">Audio</h4>
-  <div class="signal-flow">
-    <div class="sf-box"><div class="label">Input</div><div class="name">Broadcast Headsets</div></div>
-    <div class="sf-arrow">→</div>
-    <div class="sf-box"><div class="label">Board</div><div class="name">RODECaster Pro II</div></div>
-    <div class="sf-arrow">↔</div>
-    <div class="sf-box"><div class="label">DAW/Mix</div><div class="name">vMix (USB)</div></div>
-  </div>
-
-  <h4 style="color:#888; font-size:0.8rem; text-transform:uppercase; letter-spacing:0.04em; margin:16px 0 8px">Casting TV Output</h4>
-  <div class="signal-flow">
-    <div class="sf-box"><div class="label">Source</div><div class="name">OBS OMT Source</div></div>
-    <div class="sf-arrow">→</div>
-    <div class="sf-box"><div class="label">Output</div><div class="name">Laptop HDMI</div></div>
-    <div class="sf-arrow">→</div>
-    <div class="sf-box"><div class="label">Switcher</div><div class="name">HDMI Switcher</div></div>
-    <div class="sf-arrow">→</div>
-    <div class="sf-box"><div class="label">Display</div><div class="name">TV 1 + TV 2</div></div>
-  </div>
+  {% if flow.notice %}
+  <p class="signal-flow-notice">{{ flow.notice }}</p>
+  {% endif %}
+  {% endfor %}
 </section>
 
 <!-- CONNECTIONS — static reference content, left as HTML -->
@@ -86,7 +59,7 @@ title: "Purdue Esports Broadcast Operations Guide"
     <div class="plug filled"><span class="plug-icon">🎥</span>Camera 3</div>
     <div class="plug filled"><span class="plug-icon">💡</span>GVM Light 1</div>
     <div class="plug filled"><span class="plug-icon">💡</span>GVM Light 2</div>
-    <div class="plug filled"><span class="plug-icon">🔀</span>HDMI Switcher</div>
+    <div class="plug filled unavailable"><span class="plug-icon">🔀</span><del>HDMI Switcher</del></div>
     <div class="plug filled"><span class="plug-icon">💻</span>Casting Laptop</div>
   </div>
 
@@ -96,15 +69,15 @@ title: "Purdue Esports Broadcast Operations Guide"
     <tr><td>Camera 1 (Blackmagic wide)</td><td>Cam Link Pro HDMI 1</td><td>HDMI</td></tr>
     <tr><td>Camera 2 (Blackmagic close)</td><td>Cam Link Pro HDMI 2</td><td>HDMI</td></tr>
     <tr><td>Camera 3 (Panasonic Lumix G)</td><td>Cam Link Pro HDMI 3</td><td>HDMI</td></tr>
-    <tr><td>Casting Laptop HDMI out</td><td>HDMI Switcher input</td><td>HDMI</td></tr>
-    <tr><td>HDMI Switcher output 1</td><td>Casting TV 1</td><td>HDMI</td></tr>
-    <tr><td>HDMI Switcher output 2</td><td>Casting TV 2</td><td>HDMI</td></tr>
+    <tr><td>Casting Laptop HDMI out</td><td><del>HDMI Switcher input</del> Casting TV (1 or 2)</td><td>HDMI</td></tr>
+    <tr><td><del>HDMI Switcher output 1</del></td><td><del>Casting TV 1</del></td><td><del>HDMI</del></td></tr>
+    <tr><td><del>HDMI Switcher output 2</del></td><td><del>Casting TV 2</del></td><td><del>HDMI</del></td></tr>
   </table>
 
   <h3>Data / Peripheral Connections</h3>
   <table>
     <tr><th>From</th><th>To</th><th>Cable / Note</th></tr>
-    <tr><td>Wall network port (behind panel)</td><td>USB-to-Ethernet adapter → Laptop</td><td>Do NOT use built-in NIC</td></tr>
+    <tr><td>Network Cable (ran from prod room with audio cables)</td><td>USB-to-Ethernet adapter → Laptop</td><td>Do NOT use built-in NIC</td></tr>
     <tr><td>Sonnet Breakaway Box</td><td>Laptop — far rear USB-C port</td><td>Thunderbolt — specific port required</td></tr>
     <tr><td>Stream Deck Mini</td><td>USB extension → Laptop</td><td>USB</td></tr>
   </table>
